@@ -12,6 +12,12 @@ scheduler = APScheduler();
 scheduler.init_app(app)
 scheduler.start()
 
+@app.route('/test')
+def test():
+    test()
+
+    return '你好帅哦'
+
 @app.route('/')
 def hello_world():
     # scheduler = APScheduler();
@@ -29,7 +35,6 @@ def hello_world():
     # r.set('k12', 'tttttt')
     # r.lpush('test',str(time.time()))
 
-    test()
     return 'Hello World!'
 def add_job():
     print(str(time.time()))
