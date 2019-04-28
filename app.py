@@ -35,7 +35,7 @@ def hello_world():
     # r.set('k12', 'tttttt')
     # r.lpush('test',str(time.time()))
 
-    return 'Hello World!'
+    return 'Hello World!' + '</br><a href=/test>你好帅</a>'
 def add_job():
     print(str(time.time()))
 def test():
