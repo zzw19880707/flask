@@ -2,4 +2,3 @@ Flask
 pymongo
 redis
 gunicorn
-psycopg2
