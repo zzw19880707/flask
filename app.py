@@ -14,7 +14,7 @@ scheduler.start()
 
 @app.route('/test')
 def test():
-    test()
+    # test()
 
     return '你好帅哦'
 
