@@ -3,4 +3,3 @@ pymongo
 redis
 gunicorn
 psycopg2
-venv/Scripts/activate
