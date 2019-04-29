@@ -3,9 +3,9 @@ from flask import Flask
 
 from flask_apscheduler import APScheduler
 from flask import current_app
-import redis
 import time
-
+from db.conn import mongoAtlasDBConn
+from db.conn import redisDBConn
 app = Flask(__name__)
 
 scheduler = APScheduler();
@@ -15,27 +15,27 @@ scheduler.start()
 @app.route('/test')
 def test():
     # test()
-
     return '你好帅哦'
 
-@app.route('/')
-def hello_world():
+@app.route('/menu')
+def menu():
     # scheduler = APScheduler();
     # scheduler.init_app(app)
     # scheduler.start()
 
+    print(redisDBConn().db.get('25°3橙【1份1.4kg】'))
 
-    host = 'localhoredis-10684.c1.asia-northeast1-1.gce.cloud.redislabs.comst'
-    port = 10685
-    PASSWORD = 'VUnd8roSLg2v5R9pX6apCsODHbwdSdVG'
-    # pool = redis.ConnectionPool( host = host, port = port, password = PASSWORD, decode_responses=True )
 
-    # r = redis.Redis(host=host, port=port, password = PASSWORD)
-    # r = redis.Redis(connection_pool=pool)
-    # r.set('k12', 'tttttt')
-    # r.lpush('test',str(time.time()))
+    print(mongoAtlasDBConn().db.songshu_ervery_new.find())
+    return 'Hello World!' + \
+           '</br><a href=/test>你好帅</a>' + \
+           '</br><a href=/test>你好帅</a>' + \
+           '</br><a href=/test>你好帅</a>'
 
-    return 'Hello World!' + '</br><a href=/test>你好帅</a>'
+@app.route('/')
+def hello_world():
+    return ''
+
 def add_job():
     print(str(time.time()))
 def test():
