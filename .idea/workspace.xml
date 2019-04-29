@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c830b7c0-4514-4385-840e-3071c8b44c0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/DBConfig.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/conn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/getIP/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/getIP/getIP.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/getIP/user_agents.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state relative-caret-position="480">
+              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -218,23 +210,23 @@
       <option name="presentableId" value="Default" />
       <updated>1556442955752</updated>
       <workItem from="1556442957109" duration="6287000" />
-      <workItem from="1556507540454" duration="7769000" />
+      <workItem from="1556507540454" duration="7956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14056000" />
+    <option name="totallyTimeSpent" value="14243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="151" y="72" width="1761" height="987" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25247237" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25247237" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30167598" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30167598" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -340,8 +332,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        <state relative-caret-position="480">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

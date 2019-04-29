@@ -28,9 +28,9 @@ def menu():
 
     print(mongoAtlasDBConn().db.songshu_ervery_new.find())
     return 'Hello World!' + \
-           '</br><a href=/test>你好帅</a>' + \
-           '</br><a href=/test>你好帅</a>' + \
-           '</br><a href=/test>你好帅</a>'
+           '</br><a href=/test>政哥你好帅</a>' + \
+           '</br><a href=/test>貔貅你好帅</a>' + \
+           '</br><a href=/test>李政你好帅</a>'
 
 @app.route('/')
 def hello_world():
