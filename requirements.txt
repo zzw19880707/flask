@@ -4,3 +4,5 @@ pymongo
 redis
 gunicorn
 dnspython
+requests
+flask_mail
