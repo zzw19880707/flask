@@ -51,7 +51,7 @@ def hello_world():
 @app.route('/starttask')
 def start_task():
     songshuStartTask()
-    return ''
+    return '启动成功'
 
 @app.route('/gettask')
 def  get_task() :#获取
