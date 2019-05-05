@@ -20,5 +20,5 @@ def songshuStartTask():
     # 才突然发现新大陆，解决了这个问题
     # 这些add_job的参数名称，可以借鉴：http://www.dannysite.com/blog/73/
     result = current_app.apscheduler.add_job(func=__name__ + ':' + job['func'], id=job['id'], trigger='interval',
-                                             seconds=60 * 5)
+                                             hours = 2 )
     print(result)

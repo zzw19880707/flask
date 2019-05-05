@@ -23,7 +23,7 @@ def getData(page):
 
     j = json.loads(result.content.decode('utf-8'))
     r = j["body"]["activityGoodsDTOS"]
-    print(r)
+    print(len(r))
     if len(r) == 0 :
         return False
     local_time = str(time.strftime("%Y-%m-%d", time.localtime()))
@@ -52,7 +52,7 @@ def getData(page):
             conn.set(spuName, json.dumps(model))
         d['today_sold_num'] = today_sold_num
         d['today_total_price'] = today_sold_num * price
-        print(d)
+        # print(d)
         mongoAtlasDBConn().db.songshu_ervery_new.insert(d)
     return True
 
