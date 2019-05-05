@@ -25,7 +25,7 @@ def getData(page):
     r = j["body"]["activityGoodsDTOS"]
     print(r)
     if len(r) == 0 :
-        return
+        return False
     local_time = str(time.strftime("%Y-%m-%d", time.localtime()))
     conn = redisDBConn().db
     for d in r:
@@ -54,7 +54,7 @@ def getData(page):
         d['today_total_price'] = today_sold_num * price
         print(d)
         mongoAtlasDBConn().db.songshu_ervery_new.insert(d)
-
+    return True
 
 if __name__ == '__main__':
     getData(100)
