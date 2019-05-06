@@ -3,6 +3,7 @@ from flask_apscheduler import APScheduler
 from flask import current_app
 from goodsData.start import getSongshuTodayData
 from goodsData.start import songshuStartTask
+from goodsData.start import timerTask
 from flask_mail import Mail,Message
 import threading
 from db.conn import mongoAtlasDBConn
@@ -23,7 +24,6 @@ mail = Mail(app)
 
 @app.route('/test')
 def test():
-
     return '你好帅哦'
 
 @app.route('/menu')
@@ -51,6 +51,7 @@ def hello_world():
 @app.route('/starttask')
 def start_task():
     songshuStartTask()
+    timerTask()
     return '启动成功'
 
 @app.route('/gettask')
