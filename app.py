@@ -9,10 +9,26 @@ import threading
 from db.conn import mongoAtlasDBConn
 from db.conn import redisDBConn
 app = Flask(__name__)
+
+# 定时器持久化
+from apscheduler.jobstores.redis import RedisJobStore
+from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
+jobstores = {
+    'redis': RedisJobStore(connection_pool=redisDBConn().pool),#用redis作backend
+}
+executors = {
+    'default': ThreadPoolExecutor(10),#默认线程数
+    'processpool': ProcessPoolExecutor(3)#默认进程
+}
+# from apscheduler.schedulers.background import BackgroundScheduler
+# sched = BackgroundScheduler(jobstores=jobstores, executors=executors)
+app.config['SCHEDULER_JOBSTORES']=jobstores
+app.config['SCHEDULER_EXECUTORS']=executors
 # 定时器
-scheduler = APScheduler();
+scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
+
 # 邮箱
 app.config['MAIL_SERVER'] = 'smtp.126.com'
 app.config['MAIL_PORT'] = 465
@@ -21,6 +37,20 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USERNAME'] = 'zzw__8877@126.com'
 app.config['MAIL_PASSWORD'] = 'shazi31'
 mail = Mail(app)
+
+from flask import g
+
+def after_this_request(f):
+    if not hasattr(g, 'after_request_callbacks'):
+        g.after_request_callbacks = []
+    g.after_request_callbacks.append(f)
+    return f
+
+@app.after_request
+def call_after_request_callbacks(response):
+    for callback in getattr(g, 'after_request_callbacks', ()):
+        response = callback(response)
+    return response
 
 @app.route('/test')
 def test():
@@ -56,7 +86,7 @@ def start_task():
 
 @app.route('/gettask')
 def  get_task() :#获取
-    jobs=scheduler.get_jobs()
+    jobs=scheduler.get_jobs(jobstores)
     j = '<table>'
     j += ('<tr><td>%s</td><td>%s</td></tr>' % ('名字' , 'id'))
     for job in jobs:
@@ -86,6 +116,7 @@ def send_email():
     thread.start()
     return 'success'
 
+def test():
+    print("test")
 if __name__ == '__main__':
     app.run()
-

@@ -45,8 +45,8 @@ class redisDBConn(Singleton):
     def __init__(self):
         # connect db
         try:
-            self.pool = redis.ConnectionPool(host=REDISDB_CONFIG['host'], port=REDISDB_CONFIG['port'], password=REDISDB_CONFIG['PASSWORD'], decode_responses=True)
-            self.db = redis.Redis(connection_pool=self.pool)
+            self.pool = redis.ConnectionPool(host=REDISDB_CONFIG['host'], port=REDISDB_CONFIG['port'], password=REDISDB_CONFIG['PASSWORD'])
+            self.db = redis.Redis(connection_pool=self.pool,decode_responses=True)
         except Exception:
             print (traceback.format_exc())
             print ('Connect Statics Database Fail.')

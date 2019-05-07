@@ -23,7 +23,7 @@ def getData(page):
 
     j = json.loads(result.content.decode('utf-8'))
     r = j["body"]["activityGoodsDTOS"]
-    print(len(r))
+    print(page + '个数:'+len(r))
     if len(r) == 0 :
         return False
     local_time = str(time.strftime("%Y-%m-%d", time.localtime()))
