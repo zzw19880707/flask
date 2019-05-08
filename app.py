@@ -86,7 +86,7 @@ def start_task():
 
 @app.route('/gettask')
 def  get_task() :#获取
-    jobs=scheduler.get_jobs(jobstores)
+    jobs=scheduler.get_jobs('redis')
     j = '<table>'
     j += ('<tr><td>%s</td><td>%s</td></tr>' % ('名字' , 'id'))
     for job in jobs:
