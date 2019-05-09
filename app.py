@@ -1,5 +1,7 @@
 from flask import Flask
-from flask_apscheduler import APScheduler
+# from flask_apscheduler import APScheduler
+from tools.MyScheduler import myScheduler
+
 from flask import current_app
 from goodsData.start import getSongshuTodayData
 from goodsData.start import songshuStartTask
@@ -25,7 +27,7 @@ executors = {
 app.config['SCHEDULER_JOBSTORES']=jobstores
 app.config['SCHEDULER_EXECUTORS']=executors
 # 定时器
-scheduler = APScheduler()
+scheduler = myScheduler()
 scheduler.init_app(app)
 scheduler.start()
 
