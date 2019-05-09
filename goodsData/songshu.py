@@ -24,9 +24,9 @@ def getData(page):
     j = json.loads(result.content.decode('utf-8'))
     r = j["body"]["activityGoodsDTOS"]
     print(str(page) + '个数:' + str(len(r)))
+    local_time = str(time.strftime("%Y-%m-%d", time.localtime()))
     if len(r) == 0:
         return False
-    local_time = str(time.strftime("%Y-%m-%d", time.localtime()))
     conn = redisDBConn().db
     for d in r:
         d['local_time'] = local_time

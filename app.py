@@ -1,7 +1,6 @@
 from flask import Flask
-# from flask_apscheduler import APScheduler
-from tools.MyScheduler import myScheduler
-
+from flask_apscheduler import APScheduler
+from tools.Lock import Lock
 from flask import current_app
 from goodsData.start import getSongshuTodayData
 from goodsData.start import songshuStartTask
@@ -11,6 +10,7 @@ import threading
 from db.conn import mongoAtlasDBConn
 from db.conn import redisDBConn
 app = Flask(__name__)
+app.lock = Lock.get_file_lock()     ##给app注入一个外部锁
 
 # 定时器持久化
 from apscheduler.jobstores.redis import RedisJobStore
@@ -27,7 +27,7 @@ executors = {
 app.config['SCHEDULER_JOBSTORES']=jobstores
 app.config['SCHEDULER_EXECUTORS']=executors
 # 定时器
-scheduler = myScheduler()
+scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
 
@@ -121,4 +121,4 @@ def send_email():
 def test():
     print("test")
 if __name__ == '__main__':
-    app.run(processes = 1)
+    app.run()

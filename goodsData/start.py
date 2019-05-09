@@ -1,12 +1,16 @@
 from goodsData.songshu import getData
 from flask import current_app
 import requests
+from tools.Lock import Lock
+
 def getSongshuTodayData():
+    current_app.lock.acquire()  ##获取锁
     for i in range(1,100):
         b = getData(i)
         if not b:
             break
-
+    current_app.lock.release()  ##释放锁
+    
 def songshuStartTask():
     job = {
         'id': 'rds-to-mysql-1',  # 任务的唯一ID，不要冲突
