@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_apscheduler import APScheduler
-from tools.Lock import Lock
 from flask import current_app
 from goodsData.start import getSongshuTodayData
 from goodsData.start import songshuStartTask
@@ -10,7 +9,6 @@ import threading
 from db.conn import mongoAtlasDBConn
 from db.conn import redisDBConn
 app = Flask(__name__)
-app.lock = Lock.get_file_lock()     ##给app注入一个外部锁
 
 # 定时器持久化
 from apscheduler.jobstores.redis import RedisJobStore

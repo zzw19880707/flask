@@ -1,16 +1,15 @@
 from goodsData.songshu import getData
 from flask import current_app
 import requests
-from tools.Lock import Lock
-
+import os
 def getSongshuTodayData():
-    current_app.lock.acquire()  ##获取锁
-    for i in range(1,100):
-        b = getData(i)
-        if not b:
-            break
-    current_app.lock.release()  ##释放锁
-    
+    pid = os.getpid()
+    if pid == 10:
+        for i in range(1,100):
+            b = getData(i)
+            if not b:
+                break
+
 def songshuStartTask():
     job = {
         'id': 'rds-to-mysql-1',  # 任务的唯一ID，不要冲突
@@ -31,8 +30,12 @@ def songshuStartTask():
 
 
 def keepAvailable():
-    print('keepAvailable')
-    requests.get('https://flask0428.herokuapp.com/test')
+    pid = os.getpid()
+    if pid == 10:
+        print('keepAvailable')
+    else:
+        print('keepAvailable-11')
+        requests.get('https://flask0428.herokuapp.com/test')
 
 
 def timerTask():
